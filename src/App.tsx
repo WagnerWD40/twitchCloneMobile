@@ -16,16 +16,18 @@ import {
     StatusBar,
 } from 'react-native';
 
+import { 
+    Welcome,
+    SignIn,
+}from './pages';
+
 const App = () => {
   return (
     <>
         <StatusBar barStyle="dark-content" />
         <SafeAreaView>
-            <View>
-                <Text>
-                    Hellow world
-                </Text>
-            </View>
+            {/* <Welcome /> */}
+            <SignIn />
         </SafeAreaView>
     </>
   );
