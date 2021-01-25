@@ -8,19 +8,15 @@ import {
     TextInput,
     Button,
 } from '../../components';
-
-import { useUserData } from '../../context/userContext';
  
 interface FormState {
     user: string;
     password: string;
-    confirmPassword: string;
 }
 
 const initialState: FormState = {
     user: '',
     password: '',
-    confirmPassword: '',
 }
 
 function reducer(state: FormState, { field, value }: any): FormState {
@@ -30,7 +26,7 @@ function reducer(state: FormState, { field, value }: any): FormState {
     }
 }
 
-const SignIn: React.FC = () => {
+const Login: React.FC = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     function handleChangeEmail(e: any) {
@@ -47,13 +43,6 @@ const SignIn: React.FC = () => {
         });   
     }
 
-    function handleChangeConfirmPassword(e: any) {
-        dispatch({
-            field: 'confirmPassword',
-            value: e,
-        });   
-    }
-
     function handleSubmit() {
         console.log(state);
         
@@ -63,22 +52,23 @@ const SignIn: React.FC = () => {
         <Container>
             <TextInput
                 onChangeText={handleChangeEmail}
-                label="Email"/>
+                label="Usuário"/>
             <TextInput
                 onChangeText={handleChangePassword}
                 secureTextEntry={true}
                 label="Senha"/>
-            <TextInput
-                onChangeText={handleChangeConfirmPassword}
-                secureTextEntry={true}
-                label="Confirme sua senha"/>
+            <Button
+                onPress={() => {}}
+                title="Problemas ao efetuar login?"
+                label="Problemas ao efetuar login?"
+                buttonType="transparent" />
             <Button
                 onPress={handleSubmit}
-                title="Entrar"
-                label="Entrar"
+                title="Cadastrar-se"
+                label="Cadastrar-se"
                 buttonType="secondary"/>
         </Container>
     );
 }
 
-export default SignIn;
+export default Login;

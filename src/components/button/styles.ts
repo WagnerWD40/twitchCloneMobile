@@ -1,14 +1,20 @@
 import styled from 'styled-components/native';
 import { COLORS } from '../../styles/colors';
+import { ButtonProps, TouchableOpacity } from 'react-native';
+
 import {
     BackgroundType,
 } from './index';
 
-interface ButtonProps {
+interface Props extends ButtonProps{
     buttonType: BackgroundType;   
 }
 
-export const Container = styled.View<ButtonProps>`
+interface ButtonTypeProps {
+    buttonType: BackgroundType;   
+}
+
+export const Container = styled.TouchableOpacity<Props>`
     width: 100%;
     background-color: ${({ buttonType }) => buttonType === 'primary' ? COLORS.light.primary
                                             : buttonType === 'secondary' ? COLORS.light.secondary
@@ -20,7 +26,7 @@ export const Container = styled.View<ButtonProps>`
     border-radius: 4px;
 `;
 
-export const Label = styled.Text<ButtonProps>`
+export const Label = styled.Text<ButtonTypeProps>`
     color: ${({ buttonType }) => buttonType === 'primary' ? COLORS.light.textLight
                                 : buttonType === 'secondary' ? COLORS.light.textDark
                                 : COLORS.light.primary };

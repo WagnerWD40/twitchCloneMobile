@@ -1,4 +1,5 @@
 import React from 'react';
+import { ButtonProps } from 'react-native';
 
 import {
     StatusBar,
@@ -11,21 +12,22 @@ import {
 
 export type BackgroundType = 'primary' | 'secondary' | 'transparent';
 
-interface Props {
+interface Props extends ButtonProps {
     label: string;
     buttonType: BackgroundType;
+    onPress: () => void;
 }
 
-const Button: React.FC<Props> = ({ label, buttonType }) => {
+const Button: React.FC<Props> = ({ label, buttonType, onPress }) => {
     return (
-        <>
-            <StatusBar barStyle="dark-content" />
-            <Container buttonType={buttonType}>
-                <Label buttonType={buttonType}>
-                    {label}
-                </Label>
-            </Container>
-        </>
+        <Container
+            title={label}
+            buttonType={buttonType}
+            onPress={onPress}>
+            <Label buttonType={buttonType}>
+                {label}
+            </Label>
+        </Container>
     );
   };
   

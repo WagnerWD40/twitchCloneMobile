@@ -16,19 +16,13 @@ import {
     StatusBar,
 } from 'react-native';
 
-import { 
-    Welcome,
-    SignIn,
-}from './pages';
+import Routes from './routes';
 
 const App = () => {
   return (
     <>
         <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
-            {/* <Welcome /> */}
-            <SignIn />
-        </SafeAreaView>
+        <Routes />
     </>
   );
 };

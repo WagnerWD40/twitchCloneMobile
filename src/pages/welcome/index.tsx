@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import {
     StatusBar,
@@ -14,19 +15,42 @@ import {
 } from '../../components';
 
 const Welcome = () => {
+    const navigation = useNavigation();
+
+    function handleNavigateLogin() {
+        navigation.navigate('Login');
+    }
+
+    function handleNavigateSignIn() {
+        navigation.navigate('SignIn');
+    }
+
+    function handleNavigateHome() {
+        navigation.navigate('Home');
+    }
+
     return (
-        <>
-            <StatusBar barStyle="dark-content" />
-            <Container>
-                <Title>
-                    Boas-vindas à Twitch
-                </Title>
-                <Button label="Entrar" buttonType="primary" />
-                <Button label="Cadastrar-se" buttonType="secondary"/>
-                <Button label="Ignorar" buttonType="transparent" />
-            </Container>
-        </>
+        <Container>
+            <Title>
+                Boas-vindas à Twitch
+            </Title>
+            <Button
+                onPress={handleNavigateLogin}
+                title="Entrar"
+                label="Entrar"
+                buttonType="primary" />
+            <Button
+                onPress={handleNavigateSignIn}
+                title="Cadastrar-se"
+                label="Cadastrar-se"
+                buttonType="secondary"/>
+            <Button
+                onPress={() => {}}
+                title="Ignorar"
+                label="Ignorar"
+                buttonType="transparent" />
+        </Container>        
     );
   };
-  
-  export default Welcome;
+
+export default Welcome;

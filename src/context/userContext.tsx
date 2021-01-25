@@ -7,7 +7,12 @@ interface UserState {
 
 const UserContext = createContext<UserState>({} as UserState);
 
-const UserProvider: React.FC = ({ children }) => {
+interface Props {
+    children: React.ReactChildren;
+}
+
+function UserProvider({ children }: Props) {
+
     const [user, setUser] = useState<UserState>({ email: "lolada@lolada.com"} as UserState);
 
     return (
