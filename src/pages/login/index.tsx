@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import {
     Container,
@@ -29,6 +30,8 @@ function reducer(state: FormState, { field, value }: any): FormState {
 const Login: React.FC = () => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
+    const navigation = useNavigation();
+
     function handleChangeEmail(e: any) {
         dispatch({
             field: 'email',
@@ -45,6 +48,8 @@ const Login: React.FC = () => {
 
     function handleSubmit() {
         console.log(state);
+        navigation.navigate('Home');
+
         
     }
 

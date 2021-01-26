@@ -45,7 +45,7 @@ const Welcome = () => {
                 label="Cadastrar-se"
                 buttonType="secondary"/>
             <Button
-                onPress={() => {}}
+                onPress={handleNavigateHome}
                 title="Ignorar"
                 label="Ignorar"
                 buttonType="transparent" />
